@@ -25,3 +25,51 @@ body {
     text-wrap: balance;
   }
 }
+.split {
+  display: flex;
+  flex-direction: row;
+}
+
+.gutter {
+  background-color: #eee;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+  cursor: col-resize;
+}
+code{
+  background-color: rgba(110, 110, 110, 0.536);
+  padding: 1px;
+}
+.example-card{
+  background-color:  rgba(110, 110, 110, 0.536);
+  border-radius: 4px;
+  padding: 4px;
+  color: rgba(240, 248, 255, 0.505);
+}
+.example-card strong{
+    color: aliceblue;
+}
+.cm-scroller,
+.cm-gutters {
+  background-color: #1E1E1E !important;
+}
+.cm-focused{
+  outline: none !important;
+}
+
+/* dark  scrollbar */
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+	background: #282828;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #4d4d4d;
+}

@@ -1,8 +1,10 @@
 import ProblemsTable from "./components/problems-table/ProblemsTable";
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center p-4 text-center">
+    <>  
+        <main className="flex justify-center items-center p-4 text-center">
         <div className="mx-auto">
           <h2 className="text-xl font-medium mb-4">&rdquo; QUALITY OVER QUANTITY &rdquo;</h2>
           <table className="w-full">
@@ -19,5 +21,6 @@ export default function Home() {
           </table>
         </div>
     </main>
+    </>
   );
 }

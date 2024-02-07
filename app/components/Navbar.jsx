@@ -1,14 +1,15 @@
 import React from 'react'
 import Link from 'next/link';
 import { UserAuth } from '../context/AuthContext';
+import { FiLogOut } from 'react-icons/fi'
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const {user, googleSignIn, logOut} = UserAuth();
-
     const handleSignIn = async()=>{
         try {
-            console.log("Hello");
-            await googleSignIn()
+         await googleSignIn()
+         toast.success("Logged in Succesfull", {position: "top-center", autoClose: 3000})
         } catch (error) {
             console.log(error)
         }
@@ -22,19 +23,11 @@ const Navbar = () => {
     }
     console.log(user);
   return (
-    <main>
-            <div className='bg-white min-h-[8vh] md:min-h-[12vh] px-4 w-full border-b-2 flex items-center justify-between'>
+    <main >
+            <div className='bg-white min-h-[8vh] md:min-h-[10vh] px-4 w-full border-b-2 flex items-center justify-between'>
         <Link href='/'>
         <img style={{backgroundColor: "white", height: "50px"}} src="https://leetcode.com/static/webpack_bundles/images/logo.c36eaf5e6.svg" alt="" />
         </Link>
-        {user && <ul className='flex grow max-w-[300px] items-center justify-between'>
-            <li className='p-2 '>
-                <Link href='/'>Home</Link>
-            </li>
-            <li className='p-2 '>
-                <Link href='/profile'>Profile</Link>
-            </li>
-        </ul>}
         {!user ? (<ul className='flex items-center justify-between'>
             <li onClick={handleSignIn} className='p-2 cursor-pointer'>
                 SignUp
@@ -43,9 +36,16 @@ const Navbar = () => {
                 Login
             </li>
         </ul>) : (
-            <div>
-                <p>Welcome <span className='hidden md:flex'>{user.displayName}</span></p>
-                <button onClick={handleSignOut}>LogOut</button>
+            <div className='flex gap-8'>
+                <div className='cursor-pointer group relative hover:bg-gray-300/25 p-2 rounded-full shadow-lg'>
+                    👤
+                    <div className='absolute top-10 left-2/4 -translate-x-2/4 mx-auto bg-black/50 text-amber-400 p-2 rounded shadow-lg z-40 group-hover:scale-100 scale-0 transition-all duration-300 ease-in-out'>
+                        <p className='text-sm'>{user.displayName}</p>
+                    </div>
+                </div>
+                <button className='hover:bg-gray-300/25 p-2' onClick={handleSignOut}>
+                    <FiLogOut />
+                </button>
             </div>
         )}
     </div>
