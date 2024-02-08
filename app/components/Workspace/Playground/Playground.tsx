@@ -12,12 +12,15 @@ type PlaygroundProps = {
 };
 
 const Playground:React.FC<PlaygroundProps> = () => {
+    const boilerplate = `funtion twoSum(nums, target){
+        //write your code here
+};`;
     
     return <div className='flex flex-col bg-dark-layer-1 relative w-full'>
             <PreferenceNav></PreferenceNav>
             <Splitter gutterSize={5} style={{minHeight: '300px'}} layout="vertical">
                     <SplitterPanel className="w-full overflow-auto bg-[#1E1E1E]">
-                            <CodeMirror height='full' value='const a =1' theme={vscodeDark} extensions={[javascript()]} style={{fontSize: 16}}></CodeMirror>
+                            <CodeMirror height='full' value={boilerplate} theme={vscodeDark} extensions={[javascript()]} style={{fontSize: 16}}></CodeMirror>
                     </SplitterPanel>
                     <SplitterPanel className="w-full px-5 overflow-auto relative bg-[#1E1E1E]">
                             <div className='flex h-10 item-center space-x-6 w-full'>
